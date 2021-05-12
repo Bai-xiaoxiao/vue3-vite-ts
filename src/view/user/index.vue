@@ -17,12 +17,13 @@
 </template>
 
 <script>
-import { Image as VanImage } from "vant";
+import { Image as VanImage } from 'vant'
+
 export default {
   components: {
-    VanImage,
-  },
-};
+    VanImage
+  }
+}
 </script>
 
 <style scoped lang="less">

@@ -15,41 +15,42 @@
 </template>
 
 <script>
-import { List as VanList } from "vant";
-import { reactive } from "vue";
+import { List as VanList } from 'vant'
+import { reactive } from 'vue'
+
 export default {
   components: { VanList },
   setup() {
     const state = reactive({
       list: [],
       loading: false,
-      finished: false,
-    });
+      finished: false
+    })
 
     const onLoad = () => {
       // 异步更新数据
       // setTimeout 仅做示例，真实场景中一般为 ajax 请求
       setTimeout(() => {
-        for (let i = 0; i < 10; i++) {
-          state.list.push(state.list.length + 1);
+        for (let i = 0; i < 10; i += 1) {
+          state.list.push(state.list.length + 1)
         }
 
         // 加载状态结束
-        state.loading = false;
+        state.loading = false
 
         // 数据全部加载完成
         if (state.list.length >= 40) {
-          state.finished = true;
+          state.finished = true
         }
-      }, 1000);
-    };
+      }, 1000)
+    }
 
     return {
       state,
-      onLoad,
-    };
-  },
-};
+      onLoad
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>

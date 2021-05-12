@@ -25,52 +25,49 @@
         :rules="[{ validator: rePasswordValidator }]"
       />
       <div style="margin: 16px">
-        <van-button round block type="primary" native-type="submit">
-          提交
-        </van-button>
+        <van-button round block type="primary" native-type="submit"> 提交 </van-button>
       </div>
     </van-form>
   </div>
 </template>
 
 <script>
-import { Form, Field, Button } from "vant";
-import { reactive } from "vue";
+import { Form, Field, Button } from 'vant'
+import { reactive } from 'vue'
+
 export default {
   components: {
     [Form.name]: Form,
     [Field.name]: Field,
-    [Button.name]: Button,
+    [Button.name]: Button
   },
   setup() {
     // 验证部分
     const state = reactive({
-      username: "",
-      password: "",
-      rePassword: "",
-    });
+      username: '',
+      password: '',
+      rePassword: ''
+    })
     const rePasswordValidator = (val) => {
-      if (val === "") {
-        return "请输入重复密码";
+      if (val === '') {
+        return '请输入重复密码'
       }
       if (val === state.password) {
-        return true;
-      } else {
-        return "两次密码不一致";
+        return true
       }
-    };
-    const onSubmit = (values) => {
-      console.log(values);
+      return '两次密码不一致'
     }
+    // const onSubmit = (values) => {
+    //   console.log(values)
+    // }
 
     return {
       state,
-      rePasswordValidator,
-      onSubmit
-    };
-  },
-};
+      rePasswordValidator
+      // onSubmit
+    }
+  }
+}
 </script>
 
-<style>
-</style>
+<style></style>
