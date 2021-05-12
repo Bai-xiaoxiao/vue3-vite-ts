@@ -1,17 +1,16 @@
 <template>
   <div>
-    {{name}}
-    {{name}}
-    {{name}}
-    {{name}}
+    {{ name }}
+    {{ name }}
+    {{ name }}
+    {{ name }}
     <tabbar />
   </div>
 </template>
 
 <script>
 export default {
-  components: {
-  },
+  components: {},
   data() {
     return {
       name: '首页'
@@ -20,6 +19,4 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>

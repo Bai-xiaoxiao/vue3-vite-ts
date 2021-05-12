@@ -1,42 +1,41 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
-
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
     name: 'notFound',
     path: '/:path(.*)+',
     redirect: {
-      name: 'index',
-    },
+      name: 'index'
+    }
   },
   {
-    name: "index",
+    name: 'index',
     component: () => import('../view/index/index.vue'),
     meta: {
-      title: "首页",
-    },
+      title: '首页'
+    }
   },
   {
-    name: "user",
-    component: () => import("../view/user/index.vue"),
+    name: 'user',
+    component: () => import('../view/user/index.vue'),
     meta: {
-      title: "个人中心",
-    },
+      title: '个人中心'
+    }
   },
   {
-    name: "order",
-    component: () => import("../view/order/index.vue"),
+    name: 'order',
+    component: () => import('../view/order/index.vue'),
     meta: {
-      title: "订单",
-    },
+      title: '订单'
+    }
   },
   {
-    name: "signUp",
-    component: () => import("../view/signUp/index.vue"),
+    name: 'signUp',
+    component: () => import('../view/signUp/index.vue'),
     meta: {
-      title: "注册",
-    },
-  },
+      title: '注册'
+    }
+  }
   // {
   //   name: "cart",
   //   component: () => import("./view/cart"),
@@ -51,12 +50,13 @@ const routes = [
   //     title: "商品详情",
   //   },
   // },
-];
+]
 
 // add route path
 routes.forEach((route) => {
-  route.path = route.path || "/" + (route.name || "");
-});
+  const r = route
+  r.path = route.path || `/${route.name || ''}`
+})
 
 // let contexts = require.context(".", false, /(?!.*index).js$/);
 // let routes = [];
@@ -74,7 +74,7 @@ routes.forEach((route) => {
 //   }
 // });
 
-let allRoutes = [...routes];
+// let allRoutes = [...routes]
 // let router:any = new Router({
 //   mode: "history",
 //   path: "aaa",
@@ -85,15 +85,15 @@ let allRoutes = [...routes];
 // });
 const router = createRouter({
   routes,
-  history: createWebHashHistory(),
-});
+  history: createWebHashHistory()
+})
 
 router.beforeEach((to, from, next) => {
-  const title = to.meta && to.meta.title;
+  const title = to.meta && to.meta.title
   if (title) {
-    document.title = title;
+    document.title = title
   }
-  next();
-});
+  next()
+})
 
-export { router };
+export default router
