@@ -5,14 +5,12 @@
 </template>
 
 <script>
-export default {
-  
-}
+export default {}
 </script>
 
 <style lang="less">
 body {
-  font-size: 16px;
+  font-size: 14px;
   background-color: #f8f8f8;
   -webkit-font-smoothing: antialiased;
 }
