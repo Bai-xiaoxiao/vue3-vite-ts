@@ -1,39 +1,19 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
+  // {
+  //   name: 'notFound',
+  //   path: '/:path(.*)+',
+  //   redirect: {
+  //     name: 'index'
+  //   }
+  // },
   {
-    name: 'notFound',
-    path: '/:path(.*)+',
-    redirect: {
-      name: 'index'
-    }
-  },
-  {
-    name: 'index',
-    component: () => import('../view/index/index.vue'),
+    name: 'home',
+    path: '/home',
+    component: () => import('../view/home/index.vue'),
     meta: {
       title: '首页'
-    }
-  },
-  {
-    name: 'user',
-    component: () => import('../view/user/index.vue'),
-    meta: {
-      title: '个人中心'
-    }
-  },
-  {
-    name: 'order',
-    component: () => import('../view/order/index.vue'),
-    meta: {
-      title: '订单'
-    }
-  },
-  {
-    name: 'signUp',
-    component: () => import('../view/signUp/index.vue'),
-    meta: {
-      title: '注册'
     }
   }
   // {
@@ -85,13 +65,13 @@ routes.forEach((route) => {
 // });
 const router = createRouter({
   routes,
-  history: createWebHashHistory()
+  history: createWebHistory()
 })
 
 router.beforeEach((to, from, next) => {
   const title = to.meta && to.meta.title
   if (title) {
-    document.title = title
+    document.title = title as string
   }
   next()
 })
